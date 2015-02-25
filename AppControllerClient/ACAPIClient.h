@@ -1,5 +1,5 @@
 //
-//  AppControllerClient.h
+//  ACAPIClient.h
 //  AppControllerClient
 //
 //  Created by Le Huy on 2/25/15.
@@ -7,3 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@interface ACAPIClient : NSObject
+
+@end
