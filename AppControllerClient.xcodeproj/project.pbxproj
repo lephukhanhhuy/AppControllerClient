@@ -19,7 +19,18 @@
 		1CAFC75E1A9DBB7A00AF53D3 /* ACAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFC75D1A9DBB7A00AF53D3 /* ACAdView.m */; };
 		1CAFC7611A9DBBEC00AF53D3 /* ACHouseAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFC7601A9DBBEC00AF53D3 /* ACHouseAdViewController.m */; };
 		1CAFC7641A9DBBFC00AF53D3 /* ACHouseAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFC7631A9DBBFC00AF53D3 /* ACHouseAdView.m */; };
+		1CAFC7671A9DBE5A00AF53D3 /* libAppControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC7121A9DB90700AF53D3 /* libAppControllerClient.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CAFC7651A9DBE5400AF53D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CAFC70A1A9DB90700AF53D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CAFC7111A9DB90700AF53D3;
+			remoteInfo = AppControllerClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1CAFC7101A9DB90700AF53D3 /* CopyFiles */ = {
@@ -74,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAFC7671A9DBE5A00AF53D3 /* libAppControllerClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +218,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1CAFC7661A9DBE5400AF53D3 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -285,6 +298,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CAFC7661A9DBE5400AF53D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CAFC7111A9DB90700AF53D3 /* AppControllerClient */;
+			targetProxy = 1CAFC7651A9DBE5400AF53D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1CAFC73C1A9DB99800AF53D3 /* Main.storyboard */ = {

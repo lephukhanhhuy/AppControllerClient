@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ When the house ads is available, this view will show a small button with text content "Play <house ads app name>".
+ Add this view to where you want, it mays be at your Home screen
+ */
 @interface ACHouseAdView : UIView
 
 @end

@@ -7,15 +7,92 @@
 //
 
 #import "ACHouseAdViewController.h"
+#import <StoreKit/StoreKit.h>
 
-@interface ACHouseAdViewController ()
-
+@interface ACHouseAdViewController ()<SKStoreProductViewControllerDelegate>
+{
+    UIImageView* imageView;
+    
+    UIButton* buttonGo;// Overlay full screen, tap anywhere mean open store screen
+    UIButton* buttonClose;// Close button on top right
+}
 @end
 
 @implementation ACHouseAdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
+    imageView = [[UIImageView alloc] initWithImage:self.bannerImage];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imageView];
+    
+    buttonGo = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonGo.backgroundColor = [UIColor clearColor];
+    [buttonGo addTarget:self action:@selector(btnGoSelected) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonGo];
+    
+    buttonClose = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonClose.backgroundColor = [UIColor clearColor];
+    [buttonClose setTitle:@"X" forState:UIControlStateNormal];
+    
+    [buttonClose setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buttonClose setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [buttonClose setTitleShadowColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    buttonClose.layer.cornerRadius = 22;
+    buttonClose.layer.borderWidth = 2;
+    buttonClose.layer.borderColor = [buttonClose titleColorForState:UIControlStateNormal].CGColor;
+    
+    [buttonClose addTarget:self action:@selector(btnCloseSelected) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonClose];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    imageView.frame = self.view.bounds;
+    buttonGo.frame = self.view.bounds;
+    buttonClose.frame = CGRectMake(self.view.frame.size.width - 44 - 20, 20, 44, 44);
+}
+
+- (void)dealloc
+{
+    imageView = nil;
+    self.bannerImage = nil;
+}
+
+- (void) btnGoSelected {
+    NSLog(@"Go to APP: %@", self.appleId);
+    NSDictionary *appParameters = [NSDictionary dictionaryWithObject:self.appleId
+                                                              forKey:SKStoreProductParameterITunesItemIdentifier];
+    
+    SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
+    [productViewController setDelegate:self];
+    [productViewController loadProductWithParameters:appParameters
+                                     completionBlock:^(BOOL result, NSError *error)
+     {
+         
+     }];
+    [self presentViewController:productViewController
+                       animated:YES
+                     completion:^{
+                         
+                     }];
+}
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
+{
+    if (viewController)
+    { [self dismissViewControllerAnimated:YES completion:nil]; }
+}
+
+- (void) btnCloseSelected {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return self.shouldHideStatusBar;
+}
 @end
