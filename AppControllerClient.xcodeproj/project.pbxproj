@@ -20,6 +20,11 @@
 		1CAFC7611A9DBBEC00AF53D3 /* ACHouseAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFC7601A9DBBEC00AF53D3 /* ACHouseAdViewController.m */; };
 		1CAFC7641A9DBBFC00AF53D3 /* ACHouseAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFC7631A9DBBFC00AF53D3 /* ACHouseAdView.m */; };
 		1CAFC7671A9DBE5A00AF53D3 /* libAppControllerClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC7121A9DB90700AF53D3 /* libAppControllerClient.a */; };
+		1CAFC7701A9DC18300AF53D3 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC76A1A9DC18300AF53D3 /* GoogleMobileAds.framework */; };
+		1CAFC7711A9DC18300AF53D3 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFC76B1A9DC18300AF53D3 /* README.txt */; };
+		1CAFC7721A9DC18300AF53D3 /* Integration Manual.url in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFC76D1A9DC18300AF53D3 /* Integration Manual.url */; };
+		1CAFC7731A9DC18300AF53D3 /* StartApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFC76E1A9DC18300AF53D3 /* StartApp.bundle */; };
+		1CAFC7741A9DC18300AF53D3 /* StartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC76F1A9DC18300AF53D3 /* StartApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		1CAFC7601A9DBBEC00AF53D3 /* ACHouseAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHouseAdViewController.m; sourceTree = "<group>"; };
 		1CAFC7621A9DBBFC00AF53D3 /* ACHouseAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHouseAdView.h; sourceTree = "<group>"; };
 		1CAFC7631A9DBBFC00AF53D3 /* ACHouseAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHouseAdView.m; sourceTree = "<group>"; };
+		1CAFC76A1A9DC18300AF53D3 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		1CAFC76B1A9DC18300AF53D3 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		1CAFC76D1A9DC18300AF53D3 /* Integration Manual.url */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Integration Manual.url"; sourceTree = "<group>"; };
+		1CAFC76E1A9DC18300AF53D3 /* StartApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StartApp.bundle; sourceTree = "<group>"; };
+		1CAFC76F1A9DC18300AF53D3 /* StartApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StartApp.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAFC7741A9DC18300AF53D3 /* StartApp.framework in Frameworks */,
+				1CAFC7701A9DC18300AF53D3 /* GoogleMobileAds.framework in Frameworks */,
 				1CAFC7671A9DBE5A00AF53D3 /* libAppControllerClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +161,7 @@
 		1CAFC7311A9DB99800AF53D3 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				1CAFC7681A9DC18300AF53D3 /* AdServices */,
 				1CAFC7361A9DB99800AF53D3 /* AppDelegate.h */,
 				1CAFC7371A9DB99800AF53D3 /* AppDelegate.m */,
 				1CAFC7391A9DB99800AF53D3 /* ViewController.h */,
@@ -185,6 +198,34 @@
 				1CAFC74D1A9DB99800AF53D3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CAFC7681A9DC18300AF53D3 /* AdServices */ = {
+			isa = PBXGroup;
+			children = (
+				1CAFC7691A9DC18300AF53D3 /* GoogleMobileAdsSdkiOS-7.0.0 */,
+				1CAFC76C1A9DC18300AF53D3 /* StartApp_IOS-2.3.5.1 */,
+			);
+			path = AdServices;
+			sourceTree = "<group>";
+		};
+		1CAFC7691A9DC18300AF53D3 /* GoogleMobileAdsSdkiOS-7.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				1CAFC76A1A9DC18300AF53D3 /* GoogleMobileAds.framework */,
+				1CAFC76B1A9DC18300AF53D3 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.0.0";
+			sourceTree = "<group>";
+		};
+		1CAFC76C1A9DC18300AF53D3 /* StartApp_IOS-2.3.5.1 */ = {
+			isa = PBXGroup;
+			children = (
+				1CAFC76D1A9DC18300AF53D3 /* Integration Manual.url */,
+				1CAFC76E1A9DC18300AF53D3 /* StartApp.bundle */,
+				1CAFC76F1A9DC18300AF53D3 /* StartApp.framework */,
+			);
+			path = "StartApp_IOS-2.3.5.1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +308,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CAFC73E1A9DB99800AF53D3 /* Main.storyboard in Resources */,
+				1CAFC7721A9DC18300AF53D3 /* Integration Manual.url in Resources */,
+				1CAFC7731A9DC18300AF53D3 /* StartApp.bundle in Resources */,
 				1CAFC7431A9DB99800AF53D3 /* LaunchScreen.xib in Resources */,
+				1CAFC7711A9DC18300AF53D3 /* README.txt in Resources */,
 				1CAFC7401A9DB99800AF53D3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +468,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
+					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -440,6 +489,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
+					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
+				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
