@@ -26,7 +26,7 @@ static NSString* apiKey = nil;
 static ACAPIClient* _sharedInstance = nil;
 + (instancetype) sharedInstance {
     NSAssert(appId != nil, @"Please use setAppId first, it may on your AppDelegate");
-    NSAssert(apiKey != nil, @"Please use setRestAPIKey first, it may on your AppDelegate");
+    NSAssert(apiKey != nil, @"Please use setAPIKey first, it may on your AppDelegate");
     if (_sharedInstance == nil) {
         _sharedInstance = [ACAPIClient new];
         // This is Class App on Parse admin
@@ -68,8 +68,8 @@ static ACAPIClient* _sharedInstance = nil;
 }
 
 - (void) requestHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted {
-    NSString* houseAdAppID = @"";
-    NSString* houseAdRestAPIKey = @"";
+    NSString* houseAdAppID = @"enter your house ad app id here";
+    NSString* houseAdRestAPIKey = @"enter your house ad rest api key here";
     
     NSString* serverAddress = @"https://api.parse.com/1/config";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]

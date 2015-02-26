@@ -31,7 +31,11 @@
 		1CAFC77C1A9DC83D00AF53D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC77B1A9DC83D00AF53D3 /* QuartzCore.framework */; };
 		1CAFC77E1A9DC84600AF53D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC77D1A9DC84600AF53D3 /* SystemConfiguration.framework */; };
 		1CAFC7801A9DC84D00AF53D3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC77F1A9DC84D00AF53D3 /* CoreTelephony.framework */; };
-		1CB02B3E1A9EBC6C00F01E8E /* ACHouseAdClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B3D1A9EBC6C00F01E8E /* ACHouseAdClient.m */; };
+		1CB02B3E1A9EBC6C00F01E8E /* ACAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B3D1A9EBC6C00F01E8E /* ACAppClient.m */; };
+		1CB02B3F1A9ED97100F01E8E /* StartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC76F1A9DC18300AF53D3 /* StartApp.framework */; };
+		1CB02B401A9ED97A00F01E8E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC76A1A9DC18300AF53D3 /* GoogleMobileAds.framework */; };
+		1CB02B421A9EDF1A00F01E8E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB02B411A9EDF1A00F01E8E /* iAd.framework */; };
+		1CB02B431A9EDF2200F01E8E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB02B411A9EDF1A00F01E8E /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +98,9 @@
 		1CAFC77B1A9DC83D00AF53D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1CAFC77D1A9DC84600AF53D3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1CAFC77F1A9DC84D00AF53D3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		1CB02B3C1A9EBC6C00F01E8E /* ACHouseAdClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHouseAdClient.h; sourceTree = "<group>"; };
-		1CB02B3D1A9EBC6C00F01E8E /* ACHouseAdClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHouseAdClient.m; sourceTree = "<group>"; };
+		1CB02B3C1A9EBC6C00F01E8E /* ACAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppClient.h; sourceTree = "<group>"; };
+		1CB02B3D1A9EBC6C00F01E8E /* ACAppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppClient.m; sourceTree = "<group>"; };
+		1CB02B411A9EDF1A00F01E8E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB02B431A9EDF2200F01E8E /* iAd.framework in Frameworks */,
+				1CB02B401A9ED97A00F01E8E /* GoogleMobileAds.framework in Frameworks */,
+				1CB02B3F1A9ED97100F01E8E /* StartApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB02B421A9EDF1A00F01E8E /* iAd.framework in Frameworks */,
 				1CAFC7801A9DC84D00AF53D3 /* CoreTelephony.framework in Frameworks */,
 				1CAFC77E1A9DC84600AF53D3 /* SystemConfiguration.framework in Frameworks */,
 				1CAFC77C1A9DC83D00AF53D3 /* QuartzCore.framework in Frameworks */,
@@ -128,6 +137,7 @@
 		1CAFC7091A9DB90700AF53D3 = {
 			isa = PBXGroup;
 			children = (
+				1CB02B411A9EDF1A00F01E8E /* iAd.framework */,
 				1CAFC77F1A9DC84D00AF53D3 /* CoreTelephony.framework */,
 				1CAFC77D1A9DC84600AF53D3 /* SystemConfiguration.framework */,
 				1CAFC77B1A9DC83D00AF53D3 /* QuartzCore.framework */,
@@ -165,8 +175,8 @@
 				1CAFC7601A9DBBEC00AF53D3 /* ACHouseAdViewController.m */,
 				1CAFC7621A9DBBFC00AF53D3 /* ACHouseAdView.h */,
 				1CAFC7631A9DBBFC00AF53D3 /* ACHouseAdView.m */,
-				1CB02B3C1A9EBC6C00F01E8E /* ACHouseAdClient.h */,
-				1CB02B3D1A9EBC6C00F01E8E /* ACHouseAdClient.m */,
+				1CB02B3C1A9EBC6C00F01E8E /* ACAppClient.h */,
+				1CB02B3D1A9EBC6C00F01E8E /* ACAppClient.m */,
 			);
 			path = AppControllerClient;
 			sourceTree = "<group>";
@@ -356,7 +366,7 @@
 				1CAFC7611A9DBBEC00AF53D3 /* ACHouseAdViewController.m in Sources */,
 				1CAFC75E1A9DBB7A00AF53D3 /* ACAdView.m in Sources */,
 				1CAFC7581A9DBABD00AF53D3 /* ACAPIClient.m in Sources */,
-				1CB02B3E1A9EBC6C00F01E8E /* ACHouseAdClient.m in Sources */,
+				1CB02B3E1A9EBC6C00F01E8E /* ACAppClient.m in Sources */,
 				1CAFC75B1A9DBB6500AF53D3 /* ACBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +488,11 @@
 		1CAFC7271A9DB90700AF53D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
+					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -487,6 +502,11 @@
 		1CAFC7281A9DB90700AF53D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
+					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
