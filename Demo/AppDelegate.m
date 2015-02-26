@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "AppControllerClient.h"
+#import <StartApp/StartApp.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // initialize the SDK with your appID and devID
+    STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
+    sdk.appID = @"202714434";
+    sdk.devID = @"102281608";    
+    [sdk showSplashAd];
+    
     return YES;
 }
 
