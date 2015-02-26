@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self refreshBanner];
+    [self refreshInterstital];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +29,9 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+- (IBAction)openInterstitialSelected:(id)sender {
+    [self showInterstitial];
 }
 
 @end

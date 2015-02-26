@@ -52,6 +52,9 @@ typedef enum {
 // Ads control
 - (void) showSplash;
 
+- (void) setupInterstitial;
+- (void) showInterstitial;
+
 // Properties
 - (kAdServiceID) adServiceId;
 - (BOOL) isEnableHouseAd;

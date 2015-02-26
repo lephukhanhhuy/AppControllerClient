@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACAdView.h"
+
+// If ad removed, set this key to YES
+#define kUserKeyRemovedAd @"kUserKeyRemovedAd"
 
 @interface ACBaseViewController : UIViewController
+@property (nonatomic, retain) ACAdView *bannerView_;
+
+// Call this when purchase success
+- (void) removeAd;
+
+- (void) refreshBanner;
+- (void) refreshInterstital;
+- (void) showInterstitial;
+
+- (void) moveBannerToTop;
 
 @end

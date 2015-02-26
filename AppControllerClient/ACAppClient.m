@@ -53,6 +53,9 @@ static ACAppClient* _sharedInstance = nil;
     switch (adServiceId) {
         case kAdServiceStartApp:
         {
+            STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
+            sdk.appID = [self.delegate startAppAppID];
+            sdk.devID = [self.delegate startAppDeveloperID];
             [self setupStartApp];
             break;
         }
@@ -77,7 +80,7 @@ static ACAppClient* _sharedInstance = nil;
                 STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
                 sdk.appID = [self.delegate startAppAppID];
                 sdk.devID = [self.delegate startAppDeveloperID];
-                [sdk showSplashAd];
+                [[STAStartAppSDK sharedInstance] showSplashAd];
                 break;
             }
             case kAdServiceIad:
@@ -95,16 +98,39 @@ static ACAppClient* _sharedInstance = nil;
         }
     }
 }
+- (void) showInterstitial {
+    kAdServiceID adServiceId = [self adServiceId];
+    switch (adServiceId) {
+        case kAdServiceStartApp:
+        {
+            [self showStartAppInterstitial];
+            break;
+        }
+        case kAdServiceIad:
+        {
+            [self showIAdInterstitial];
+            break;
+        }
+        default:// Admob is default
+        {
+            [self showAdmobInterstitial];
+            break;
+        }
+    }
+}
+
 - (void) showStartAppInterstitial {
     NSLog(@"showInterstitial STARTAPP");
     [self.startAppInterstitial showAd];
+    [self.startAppInterstitial loadAd];// Load when show, so next time you will have another ad
 }
 - (void) showIAdInterstitial {
     if (self.iAdInterstitial.loaded)
     {
         NSLog(@"showInterstitial IAD");
         [self.iAdInterstitial presentFromViewController:[self topMostController]];
-        return;
+    } else {
+        [self showAdmobInterstitial];
     }
 }
 - (void) showAdmobInterstitial {
