@@ -10,6 +10,7 @@
 #import <StartApp/StartApp.h>
 #import <iAd/iAd.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "ACHouseAdObject.h"
 
 #define kParameterKeyEnableSplash   @"enable_splash_ad"
 #define kParameterKeyEnableHouseAd  @"enable_house_ad"
@@ -39,6 +40,7 @@ typedef enum {
 
 @interface ACAppClient : NSObject
 @property (weak) id<ACAppClientDelegate> delegate;
+@property ACHouseAdObject* houseAdObject;
 
 @property (nonatomic, retain) STAStartAppAd     *startAppInterstitial;
 @property (nonatomic, retain) GADInterstitial   *admobInterstitial;

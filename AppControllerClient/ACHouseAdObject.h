@@ -34,5 +34,5 @@
 - (instancetype) initWithHouseAdData:(NSDictionary*) houseAdData;
 
 - (NSString*) getAppleId;
-
+- (NSString*) getAppName;
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ACBaseViewController.h"
 
-@interface ViewController : ACBaseViewController
+@interface PlayViewController : ACBaseViewController
 
 @end
 

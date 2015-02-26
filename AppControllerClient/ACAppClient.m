@@ -8,14 +8,11 @@
 
 #import "ACAppClient.h"
 #import "ACAPIClient.h"
-#import "ACHouseAdObject.h"
 #import "ACHouseAdViewController.h"
 
 @interface ACAppClient () <GADInterstitialDelegate, ADInterstitialAdDelegate>
 {
     BOOL isSplashInterstitial;// Use when need splash ad with iAd or Admob
-    
-    ACHouseAdObject* houseAdObject;
 }
 @end
 
@@ -48,7 +45,7 @@ static ACAppClient* _sharedInstance = nil;
             [[NSUserDefaults standardUserDefaults] synchronize];
             if ([self isEnableHouseAd]) {
                 [[ACAPIClient sharedInstance] requestHouseAdOnCompleted:^(NSDictionary *houseAdDict) {
-                    houseAdObject = [[ACHouseAdObject alloc] initWithHouseAdData:houseAdDict[@"params"]];
+                    self.houseAdObject = [[ACHouseAdObject alloc] initWithHouseAdData:houseAdDict[@"params"]];
                 }];
             }
         }];
@@ -108,16 +105,16 @@ static ACAppClient* _sharedInstance = nil;
 }
 - (BOOL) showHouseAd {
     // Show house ad here
-    if (houseAdObject != nil) {
-        NSString* appleID = [houseAdObject getAppleId];
-        if (houseAdObject.isActive
-            && houseAdObject.isReplayInterstitial
-            && houseAdObject.appBannerLoaded
-            && houseAdObject.cachedImage != nil
+    if (self.houseAdObject != nil) {
+        NSString* appleID = [_houseAdObject getAppleId];
+        if (_houseAdObject.isActive
+            && _houseAdObject.isReplayInterstitial
+            && _houseAdObject.appBannerLoaded
+            && _houseAdObject.cachedImage != nil
             && appleID != nil) {
             // Show house ad full screen
             ACHouseAdViewController* imageVC = [ACHouseAdViewController new];
-            imageVC.bannerImage = houseAdObject.cachedImage;
+            imageVC.bannerImage = _houseAdObject.cachedImage;
             imageVC.appleId = appleID;
             [[self topMostController] presentViewController:imageVC animated:YES completion:^{
                 

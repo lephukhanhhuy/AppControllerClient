@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Huy Le. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PlayViewController.h"
 
-@interface ViewController ()
+@interface PlayViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PlayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

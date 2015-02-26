@@ -68,7 +68,7 @@ static ACAPIClient* _sharedInstance = nil;
 }
 
 - (void) requestHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted {
-    
+
     
     NSString* houseAdAppID = @"enter your house ad app id here";
     NSString* houseAdRestAPIKey = @"enter your house ad rest api key here";

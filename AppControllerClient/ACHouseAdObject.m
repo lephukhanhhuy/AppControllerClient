@@ -42,11 +42,19 @@
     }
     return self;
 }
+- (NSString*) getAppName {
+    NSArray* array = houseAdAppstoreData[@"results"];
+    NSDictionary* dict = [array firstObject];
+    if (dict != nil) {
+        return [NSString stringWithFormat:@"%@", dict[@"trackName"]];
+    }
+    return nil;
+}
 - (NSString*) getAppleId {
     NSArray* array = houseAdAppstoreData[@"results"];
     NSDictionary* dict = [array firstObject];
     if (dict != nil) {
-        return [dict[@"trackId"] stringValue];
+        return [NSString stringWithFormat:@"%@", dict[@"trackId"]];
     }
     return nil;
 }
