@@ -36,6 +36,7 @@
 		1CB02B401A9ED97A00F01E8E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAFC76A1A9DC18300AF53D3 /* GoogleMobileAds.framework */; };
 		1CB02B421A9EDF1A00F01E8E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB02B411A9EDF1A00F01E8E /* iAd.framework */; };
 		1CB02B431A9EDF2200F01E8E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB02B411A9EDF1A00F01E8E /* iAd.framework */; };
+		1CB02B461A9F0AFB00F01E8E /* ACHouseAdObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B451A9F0AFB00F01E8E /* ACHouseAdObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		1CB02B3C1A9EBC6C00F01E8E /* ACAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppClient.h; sourceTree = "<group>"; };
 		1CB02B3D1A9EBC6C00F01E8E /* ACAppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppClient.m; sourceTree = "<group>"; };
 		1CB02B411A9EDF1A00F01E8E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		1CB02B441A9F0AFB00F01E8E /* ACHouseAdObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHouseAdObject.h; sourceTree = "<group>"; };
+		1CB02B451A9F0AFB00F01E8E /* ACHouseAdObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHouseAdObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				1CAFC7631A9DBBFC00AF53D3 /* ACHouseAdView.m */,
 				1CB02B3C1A9EBC6C00F01E8E /* ACAppClient.h */,
 				1CB02B3D1A9EBC6C00F01E8E /* ACAppClient.m */,
+				1CB02B441A9F0AFB00F01E8E /* ACHouseAdObject.h */,
+				1CB02B451A9F0AFB00F01E8E /* ACHouseAdObject.m */,
 			);
 			path = AppControllerClient;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CAFC7641A9DBBFC00AF53D3 /* ACHouseAdView.m in Sources */,
+				1CB02B461A9F0AFB00F01E8E /* ACHouseAdObject.m in Sources */,
 				1CAFC7611A9DBBEC00AF53D3 /* ACHouseAdViewController.m in Sources */,
 				1CAFC75E1A9DBB7A00AF53D3 /* ACAdView.m in Sources */,
 				1CAFC7581A9DBABD00AF53D3 /* ACAPIClient.m in Sources */,

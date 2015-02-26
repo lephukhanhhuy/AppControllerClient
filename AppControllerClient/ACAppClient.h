@@ -38,7 +38,6 @@ typedef enum {
 @end
 
 @interface ACAppClient : NSObject
-
 @property (weak) id<ACAppClientDelegate> delegate;
 
 @property (nonatomic, retain) STAStartAppAd     *startAppInterstitial;

@@ -31,6 +31,11 @@
  */
 - (void) requestHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted;
 
+/*
+ Get detail of app from Appstore with Bundle ID
+ */
+- (void) requestBundleID:(NSString*) bundleId onCompleted:(void (^)(NSDictionary* app)) onCompleted;
+
 /* Use for tracking on AppControllerServer
 - (void) postTrackingClickToHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted;
 */

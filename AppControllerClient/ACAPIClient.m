@@ -68,6 +68,8 @@ static ACAPIClient* _sharedInstance = nil;
 }
 
 - (void) requestHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted {
+    
+    
     NSString* houseAdAppID = @"enter your house ad app id here";
     NSString* houseAdRestAPIKey = @"enter your house ad rest api key here";
     
@@ -79,6 +81,36 @@ static ACAPIClient* _sharedInstance = nil;
     [request setHTTPMethod: @"GET"];
     [request addValue:houseAdAppID forHTTPHeaderField:@"X-Parse-Application-Id"];
     [request addValue:houseAdRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([data length] > 0 && error == nil) {
+                NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSLog(@"receivedData (NSDictionary): %@", dict);
+                if (onCompleted) {
+                    onCompleted(dict);
+                    return;
+                }
+            }
+            else if ([data length] == 0 && error == nil)
+                NSLog(@"Empty reply");
+            else if (error != nil && error.code == NSURLErrorTimedOut)
+                NSLog(@"Timeout");
+            else if (error != nil)
+                NSLog(@"Error: %@", error);
+            onCompleted(nil);
+        });
+    }];
+}
+
+// Example: https://itunes.apple.com/lookup?bundleId=Indygo.Media.Find1To121
+- (void) requestBundleID:(NSString*) bundleId onCompleted:(void (^)(NSDictionary* app)) onCompleted {
+    NSString* serverAddress = [NSString stringWithFormat:@"https://itunes.apple.com/lookup?bundleId=%@", bundleId];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{

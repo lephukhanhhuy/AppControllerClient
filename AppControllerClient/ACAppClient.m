@@ -8,10 +8,14 @@
 
 #import "ACAppClient.h"
 #import "ACAPIClient.h"
+#import "ACHouseAdObject.h"
+#import "ACHouseAdViewController.h"
 
 @interface ACAppClient () <GADInterstitialDelegate, ADInterstitialAdDelegate>
 {
     BOOL isSplashInterstitial;// Use when need splash ad with iAd or Admob
+    
+    ACHouseAdObject* houseAdObject;
 }
 @end
 
@@ -42,7 +46,11 @@ static ACAppClient* _sharedInstance = nil;
             }
             // Save this config
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
+            if ([self isEnableHouseAd]) {
+                [[ACAPIClient sharedInstance] requestHouseAdOnCompleted:^(NSDictionary *houseAdDict) {
+                    houseAdObject = [[ACHouseAdObject alloc] initWithHouseAdData:houseAdDict[@"params"]];
+                }];
+            }
         }];
     }
     return self;
@@ -98,7 +106,34 @@ static ACAppClient* _sharedInstance = nil;
         }
     }
 }
+- (BOOL) showHouseAd {
+    // Show house ad here
+    if (houseAdObject != nil) {
+        NSString* appleID = [houseAdObject getAppleId];
+        if (houseAdObject.isActive
+            && houseAdObject.isReplayInterstitial
+            && houseAdObject.appBannerLoaded
+            && houseAdObject.cachedImage != nil
+            && appleID != nil) {
+            // Show house ad full screen
+            ACHouseAdViewController* imageVC = [ACHouseAdViewController new];
+            imageVC.bannerImage = houseAdObject.cachedImage;
+            imageVC.appleId = appleID;
+            [[self topMostController] presentViewController:imageVC animated:YES completion:^{
+                
+            }];
+            isSplashInterstitial = NO;// Cancel splash if the house ad appear
+            return YES;
+        }
+    }
+    return NO;
+}
 - (void) showInterstitial {
+    if ([self isEnableHouseAd]) {
+        if ([self showHouseAd]) {
+            return;
+        }
+    }
     kAdServiceID adServiceId = [self adServiceId];
     switch (adServiceId) {
         case kAdServiceStartApp:
