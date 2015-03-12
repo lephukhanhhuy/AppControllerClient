@@ -68,10 +68,11 @@ static ACAPIClient* _sharedInstance = nil;
 }
 
 - (void) requestHouseAdOnCompleted:(void (^)(NSDictionary* app)) onCompleted {
-
+    NSString* houseAdAppID = @"lMHqbNEy17Oyp5fQMhFDexGOu2mLJwBEs7C30fGj";
+    NSString* houseAdRestAPIKey = @"LcMfuwYzqxaqF71dKFLzX3ftV2wp9rGjoTE68c8Q";
     
-    NSString* houseAdAppID = @"enter your house ad app id here";
-    NSString* houseAdRestAPIKey = @"enter your house ad rest api key here";
+//    NSString* houseAdAppID = @"enter your house ad app id here";
+//    NSString* houseAdRestAPIKey = @"enter your house ad rest api key here";
     
     NSString* serverAddress = @"https://api.parse.com/1/config";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]

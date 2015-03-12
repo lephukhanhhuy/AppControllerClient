@@ -39,7 +39,10 @@
     buttonLinkApp.frame = self.bounds;
     appName.frame = self.bounds;
 }
-// Default color is black, you can find a way to change
+- (void) setButtonColor:(UIColor*) color {
+    appName.textColor = color;
+}
+
 - (void) setupAd {
     buttonLinkApp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     buttonLinkApp.backgroundColor = [UIColor clearColor];
@@ -52,6 +55,8 @@
     // Animation label
     appName = [[MarqueeLabel alloc] initWithFrame:self.bounds];
     [self addSubview:appName];
+    appName.font = [UIFont systemFontOfSize:16];
+//    appName.textAlignment = NSTextAlignmentCenter;
     appName.marqueeType = MLLeftRight;
     appName.scrollDuration = 2.0;
     appName.fadeLength = 5.0f;
@@ -60,7 +65,19 @@
     [self updateHouseAdText];
 }
 - (void) updateHouseAdText {
+    if (![ACAppClient sharedInstance].isEnableHouseAd) {
+        NSLog(@"This app disable house ad");
+        appName.text = @"";
+        [self performSelector:@selector(updateHouseAdText) withObject:nil afterDelay:5];
+        return;
+    }
     ACHouseAdObject* houseAdObject = [ACAppClient sharedInstance].houseAdObject;
+    if (!houseAdObject.isActive) {
+        // show nothing
+         appName.text = @"";
+        [self performSelector:@selector(updateHouseAdText) withObject:nil afterDelay:5];
+        return;
+    }
     if (houseAdObject.appDataLoaded) {
         trackName = [houseAdObject getAppName];
         trackId = [houseAdObject getAppleId];
@@ -73,6 +90,9 @@
 - (void) btnLinkAppSelected {
     if (self.rootViewController == nil) {
         NSLog(@"This view need root view controller");
+        return;
+    }
+    if (trackId == nil) {
         return;
     }
     NSLog(@"Go to APP: %@", trackId);

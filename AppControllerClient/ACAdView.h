@@ -27,4 +27,6 @@
 
 - (void) sizeToFitWidthWithView:(UIView*) view;
 
+- (void) refreshBanner;
+
 @end

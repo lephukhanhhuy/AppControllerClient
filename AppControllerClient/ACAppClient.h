@@ -41,6 +41,7 @@ typedef enum {
 @interface ACAppClient : NSObject
 @property (weak) id<ACAppClientDelegate> delegate;
 @property ACHouseAdObject* houseAdObject;
+@property NSDictionary* appDict;
 
 @property (nonatomic, retain) STAStartAppAd     *startAppInterstitial;
 @property (nonatomic, retain) GADInterstitial   *admobInterstitial;
@@ -61,4 +62,5 @@ typedef enum {
 - (BOOL) isEnableHouseAd;
 - (BOOL) isEnableSplash;
 
++ (void) setupGoogleAnalyticsWithTrackingId:(NSString*) trackingId;
 @end

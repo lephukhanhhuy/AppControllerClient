@@ -15,4 +15,7 @@
 
 @interface ACHouseAdView : UIView
 @property(weak) UIViewController* rootViewController;
+
+- (void) setButtonColor:(UIColor*) color;
+
 @end

@@ -17,9 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [ACAPIClient setAppId:@"OqkAYlukr32pMk0HgNNnUWO6QTPBRa5hMvM10EXW"];
+    [ACAPIClient setAPIKey:@"o9uBGYXyB2hX2ZtrMv5W1292TeAlvXtIb7D8B3Vw"];
       
-    [ACAPIClient setAppId:@"enter your app id here"];
-    [ACAPIClient setAPIKey:@"enter your api key here"];
+//    [ACAPIClient setAppId:@"enter your app id here"];
+//    [ACAPIClient setAPIKey:@"enter your api key here"];
     
     // Override point for customization after application launch.    
     ACAppClient* appClient = [ACAppClient sharedInstance];
@@ -52,6 +54,6 @@
     return @"ca-app-pub-9823948949443760/3765812331";
 }
 - (NSArray *)admobTestDevices {
-    return @[];
+    return @[@"e38eaea637408ebd5464f3721f4cf171"];
 }
 @end

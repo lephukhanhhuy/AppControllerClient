@@ -56,6 +56,7 @@
         self.bannerView_.frame = frame;
     }
     [self.view bringSubviewToFront:self.bannerView_];
+    [self.bannerView_ refreshBanner];
 }
 
 

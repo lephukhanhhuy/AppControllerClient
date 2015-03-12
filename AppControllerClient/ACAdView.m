@@ -23,7 +23,6 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.rootViewController = rootViewController;
-        [self refreshBanner];
     }
     return self;
 }
@@ -38,6 +37,7 @@
     // Update the real banner here
     self.admobBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     self.iAdBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    self.startAdBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 }
 
 - (void) sizeToFitWidthWithView:(UIView*) view {
@@ -90,6 +90,9 @@
     self.admobBannerView.adUnitID = [[ACAppClient sharedInstance].delegate admobBannerId];
     self.admobBannerView.rootViewController = self.rootViewController;
     [self addSubview:self.admobBannerView];
+    GADRequest* request = [GADRequest request];
+    request.testDevices = [[ACAppClient sharedInstance].delegate admobTestDevices];
+    [self.admobBannerView loadRequest:request];
 }
 - (void) cleanAllAds {
     [self cleanAdmob];

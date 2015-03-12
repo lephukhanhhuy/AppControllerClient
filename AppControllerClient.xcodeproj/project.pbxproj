@@ -39,6 +39,8 @@
 		1CB02B461A9F0AFB00F01E8E /* ACHouseAdObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B451A9F0AFB00F01E8E /* ACHouseAdObject.m */; };
 		1CB02B4B1A9F19D800F01E8E /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B4A1A9F19D800F01E8E /* MarqueeLabel.m */; };
 		1CB02B4E1A9F214E00F01E8E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02B4D1A9F214E00F01E8E /* HomeViewController.m */; };
+		1CB02D8B1AA164F300F01E8E /* ACBaseTrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB02D8A1AA164F300F01E8E /* ACBaseTrackingViewController.m */; };
+		1CB02D9C1AA16A8600F01E8E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB02D9B1AA16A8600F01E8E /* libGoogleAnalyticsServices.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,15 @@
 		1CB02B4A1A9F19D800F01E8E /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		1CB02B4C1A9F214E00F01E8E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1CB02B4D1A9F214E00F01E8E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1CB02D891AA164F300F01E8E /* ACBaseTrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBaseTrackingViewController.h; sourceTree = "<group>"; };
+		1CB02D8A1AA164F300F01E8E /* ACBaseTrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBaseTrackingViewController.m; sourceTree = "<group>"; };
+		1CB02D951AA16A8600F01E8E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		1CB02D961AA16A8600F01E8E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		1CB02D971AA16A8600F01E8E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		1CB02D981AA16A8600F01E8E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		1CB02D991AA16A8600F01E8E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		1CB02D9A1AA16A8600F01E8E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		1CB02D9B1AA16A8600F01E8E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +131,7 @@
 				1CB02B431A9EDF2200F01E8E /* iAd.framework in Frameworks */,
 				1CB02B401A9ED97A00F01E8E /* GoogleMobileAds.framework in Frameworks */,
 				1CB02B3F1A9ED97100F01E8E /* StartApp.framework in Frameworks */,
+				1CB02D9C1AA16A8600F01E8E /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +191,8 @@
 				1CAFC7571A9DBABD00AF53D3 /* ACAPIClient.m */,
 				1CAFC7591A9DBB6500AF53D3 /* ACBaseViewController.h */,
 				1CAFC75A1A9DBB6500AF53D3 /* ACBaseViewController.m */,
+				1CB02D891AA164F300F01E8E /* ACBaseTrackingViewController.h */,
+				1CB02D8A1AA164F300F01E8E /* ACBaseTrackingViewController.m */,
 				1CAFC75C1A9DBB7A00AF53D3 /* ACAdView.h */,
 				1CAFC75D1A9DBB7A00AF53D3 /* ACAdView.m */,
 				1CAFC75F1A9DBBEC00AF53D3 /* ACHouseAdViewController.h */,
@@ -284,10 +298,26 @@
 		1CB02B481A9F19D700F01E8E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1CB02D941AA16A8600F01E8E /* GoogleAnalytics */,
 				1CB02B491A9F19D800F01E8E /* MarqueeLabel.h */,
 				1CB02B4A1A9F19D800F01E8E /* MarqueeLabel.m */,
 			);
 			path = Libs;
+			sourceTree = "<group>";
+		};
+		1CB02D941AA16A8600F01E8E /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				1CB02D951AA16A8600F01E8E /* GAI.h */,
+				1CB02D961AA16A8600F01E8E /* GAIDictionaryBuilder.h */,
+				1CB02D971AA16A8600F01E8E /* GAIFields.h */,
+				1CB02D981AA16A8600F01E8E /* GAILogger.h */,
+				1CB02D991AA16A8600F01E8E /* GAITrackedViewController.h */,
+				1CB02D9A1AA16A8600F01E8E /* GAITracker.h */,
+				1CB02D9B1AA16A8600F01E8E /* libGoogleAnalyticsServices.a */,
+			);
+			name = GoogleAnalytics;
+			path = ../../../0_Offical/Libs_Ref/GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB02D8B1AA164F300F01E8E /* ACBaseTrackingViewController.m in Sources */,
 				1CAFC7641A9DBBFC00AF53D3 /* ACHouseAdView.m in Sources */,
 				1CB02B4B1A9F19D800F01E8E /* MarqueeLabel.m in Sources */,
 				1CB02B461A9F0AFB00F01E8E /* ACHouseAdObject.m in Sources */,
@@ -519,6 +550,10 @@
 					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
 					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/lehuy/Projects/10_Libs/0_Offical/Libs_Ref/GoogleAnalytics,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -532,6 +567,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/AdServices/StartApp_IOS-2.3.5.1",
 					"$(PROJECT_DIR)/Demo/AdServices/GoogleMobileAdsSdkiOS-7.0.0",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/lehuy/Projects/10_Libs/0_Offical/Libs_Ref/GoogleAnalytics,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
