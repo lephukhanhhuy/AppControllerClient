@@ -38,7 +38,9 @@
     [[ACAppClient sharedInstance] setupInterstitial];
 }
 - (void) showInterstitial {
-    [[ACAppClient sharedInstance] showInterstitial];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == NO) {
+        [[ACAppClient sharedInstance] showInterstitial];
+    }
 }
 - (void) refreshBanner {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == YES) {
