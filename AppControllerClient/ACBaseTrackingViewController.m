@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self trackScreenName:NSStringFromClass([self class])];
 }
 
 - (void)didReceiveMemoryWarning {
