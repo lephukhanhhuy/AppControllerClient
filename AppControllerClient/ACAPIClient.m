@@ -117,7 +117,7 @@ static ACAPIClient* _sharedInstance = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([data length] > 0 && error == nil) {
                 NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                NSLog(@"receivedData (NSDictionary): %@", dict);
+                NSLog(@"receivedData iTunes (NSDictionary): %@", dict);
                 if (onCompleted) {
                     onCompleted(dict);
                     return;

@@ -36,6 +36,7 @@
                     NSLog(@"Banner house ad downloaded");
                     self.cachedImage = image;
                     self.appBannerLoaded = YES;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationDidFinishDownloadHouseAd object:nil];
                 }];
             }];
         }

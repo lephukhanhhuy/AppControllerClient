@@ -110,7 +110,7 @@ static ACAppClient* _sharedInstance = nil;
         }
     }
 }
-- (BOOL) showHouseAd {
+- (BOOL) showHouseAdFromViewController:(UIViewController*) vc {
     // Show house ad here
     if (self.houseAdObject != nil) {
         NSString* appleID = [_houseAdObject getAppleId];
@@ -124,7 +124,7 @@ static ACAppClient* _sharedInstance = nil;
             imageVC.shouldHideStatusBar = YES;
             imageVC.bannerImage = _houseAdObject.cachedImage;
             imageVC.appleId = appleID;
-            [[self topMostController] presentViewController:imageVC animated:YES completion:^{
+            [vc presentViewController:imageVC animated:NO completion:^{
                 
             }];
             isSplashInterstitial = NO;// Cancel splash if the house ad appear
@@ -134,11 +134,11 @@ static ACAppClient* _sharedInstance = nil;
     return NO;
 }
 - (void) showInterstitial {
-    if ([self isEnableHouseAd]) {
-        if ([self showHouseAd]) {
-            return;
-        }
-    }
+//    if ([self isEnableHouseAd]) {
+//        if ([self showHouseAd]) {
+//            return;
+//        }
+//    }
     kAdServiceID adServiceId = [self adServiceId];
     switch (adServiceId) {
         case kAdServiceStartApp:

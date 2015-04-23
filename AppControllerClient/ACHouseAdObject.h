@@ -15,6 +15,8 @@
 #define kParameterKeyHouseAdBannerUrlPad    @"banner_pad_url"
 #define kParameterKeyHouseAdBannerEnableReplaceInterstitial @"enable_replace_interstitial"
 
+#define kNotificationDidFinishDownloadHouseAd @"kNotificationDidFinishDownloadHouseAd"
+
 @interface ACHouseAdObject : NSObject
 {
     NSDictionary* houseAdAppstoreData;// Data got from iTunes API

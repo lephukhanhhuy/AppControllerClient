@@ -57,6 +57,8 @@ typedef enum {
 - (void) setupInterstitial;
 - (void) showInterstitial;
 
+- (BOOL) showHouseAdFromViewController:(UIViewController*) vc;
+
 // Properties
 - (kAdServiceID) adServiceId;
 - (BOOL) isEnableHouseAd;

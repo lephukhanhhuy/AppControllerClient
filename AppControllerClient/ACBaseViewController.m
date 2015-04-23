@@ -18,13 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleHouseAdNotification) name:kNotificationDidFinishDownloadHouseAd object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(handleHouseAdNotification)
+                                                name:UIApplicationDidBecomeActiveNotification
+                                              object:nil];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self.bannerView_ sizeToFitWidthWithView:self.view];
 }
-
+- (void) handleHouseAdNotification {
+    if (self.isViewLoaded && (self.view.window != nil)) {
+        [[ACAppClient sharedInstance] showHouseAdFromViewController:self];
+    }
+}
 - (void) removeAd {
     if (self.bannerView_ != nil) {
         [self.bannerView_ removeFromSuperview];
