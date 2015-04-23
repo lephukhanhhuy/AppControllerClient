@@ -33,7 +33,7 @@
     [self.view addSubview:buttonGo];
     
     buttonClose = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonClose.backgroundColor = [UIColor clearColor];
+    buttonClose.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     [buttonClose setTitle:@"X" forState:UIControlStateNormal];
     
     [buttonClose setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
