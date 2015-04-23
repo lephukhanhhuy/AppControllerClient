@@ -10,7 +10,9 @@
 #import "ACAppClient.h"
 
 @interface ACBaseViewController ()
-
+{
+    int interstitialCount;
+}
 @end
 
 @implementation ACBaseViewController
@@ -23,6 +25,7 @@
                                             selector:@selector(handleHouseAdNotification)
                                                 name:UIApplicationDidBecomeActiveNotification
                                               object:nil];
+    interstitialCount = 0;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -48,7 +51,17 @@
 }
 - (void) showInterstitial {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == NO) {
-        [[ACAppClient sharedInstance] showInterstitial];
+        id interstitialRate = [ACAppClient sharedInstance].appDict[@"interstitial_rate"];
+        if (interstitialRate != nil) {
+            interstitialCount++;
+            int rate = [interstitialRate intValue];
+            if (interstitialCount >= rate) {
+                interstitialCount = 0;
+                [[ACAppClient sharedInstance] showInterstitial];
+            }
+        } else {
+            [[ACAppClient sharedInstance] showInterstitial];
+        }
     }
 }
 - (void) refreshBanner {
