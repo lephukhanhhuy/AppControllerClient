@@ -34,7 +34,9 @@
 }
 - (void) handleHouseAdNotification {
     if (self.isViewLoaded && (self.view.window != nil)) {
-        [[ACAppClient sharedInstance] showHouseAdFromViewController:self];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == NO) {
+            [[ACAppClient sharedInstance] showHouseAdFromViewController:self];
+        }
     }
 }
 - (void) removeAd {
