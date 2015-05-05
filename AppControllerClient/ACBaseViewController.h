@@ -24,4 +24,5 @@
 
 - (void) moveBannerToTop;
 
+- (BOOL) shouldShowInterstitial;
 @end

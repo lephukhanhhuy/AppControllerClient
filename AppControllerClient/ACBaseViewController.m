@@ -49,17 +49,23 @@
 - (void) refreshInterstital {
     [[ACAppClient sharedInstance] setupInterstitial];
 }
+- (BOOL) shouldShowInterstitial {
+    id interstitialRate = [ACAppClient sharedInstance].appDict[@"interstitial_rate"];
+    if (interstitialRate != nil) {
+        interstitialCount++;
+        int rate = [interstitialRate intValue];
+        if (interstitialCount >= rate) {
+            interstitialCount = 0;
+            return YES;
+        }
+    } else {
+        return YES;
+    }
+    return NO;
+}
 - (void) showInterstitial {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == NO) {
-        id interstitialRate = [ACAppClient sharedInstance].appDict[@"interstitial_rate"];
-        if (interstitialRate != nil) {
-            interstitialCount++;
-            int rate = [interstitialRate intValue];
-            if (interstitialCount >= rate) {
-                interstitialCount = 0;
-                [[ACAppClient sharedInstance] showInterstitial];
-            }
-        } else {
+        if ([self shouldShowInterstitial]) {
             [[ACAppClient sharedInstance] showInterstitial];
         }
     }
