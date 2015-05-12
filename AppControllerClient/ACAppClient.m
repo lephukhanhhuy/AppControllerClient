@@ -134,6 +134,9 @@ static ACAppClient* _sharedInstance = nil;
     return NO;
 }
 - (void) showInterstitial {
+    [self showInterstitialFromViewController:nil];
+}
+- (void) showInterstitialFromViewController:(UIViewController*) viewController {
 //    if ([self isEnableHouseAd]) {
 //        if ([self showHouseAd]) {
 //            return;
@@ -148,12 +151,12 @@ static ACAppClient* _sharedInstance = nil;
         }
         case kAdServiceIad:
         {
-            [self showIAdInterstitial];
+            [self showIAdInterstitialFromViewController:viewController];
             break;
         }
         default:// Admob is default
         {
-            [self showAdmobInterstitial];
+            [self showAdmobInterstitialFromViewController:viewController];
             break;
         }
     }
@@ -164,19 +167,19 @@ static ACAppClient* _sharedInstance = nil;
     [self.startAppInterstitial showAd];
     [self.startAppInterstitial loadAd];// Load when show, so next time you will have another ad
 }
-- (void) showIAdInterstitial {
+- (void) showIAdInterstitialFromViewController:(UIViewController*) viewController {
     if (self.iAdInterstitial.loaded)
     {
         NSLog(@"showInterstitial IAD");
-        [self.iAdInterstitial presentFromViewController:[self topMostController]];
+        [self.iAdInterstitial presentFromViewController:viewController!=nil?viewController:[self topMostController]];
     } else {
-        [self showAdmobInterstitial];
+        [self showAdmobInterstitialFromViewController:viewController];
     }
 }
-- (void) showAdmobInterstitial {
+- (void) showAdmobInterstitialFromViewController:(UIViewController*) viewController {
     if ([self.admobInterstitial isReady]) {
         NSLog(@"showInterstitial ADMOB");
-        [self.admobInterstitial presentFromRootViewController:[self topMostController]];
+        [self.admobInterstitial presentFromRootViewController:viewController!=nil?viewController:[self topMostController]];
     }
 }
 - (void) setupStartApp {
@@ -246,7 +249,7 @@ static ACAppClient* _sharedInstance = nil;
 - (void)interstitialAdDidLoad:(ADInterstitialAd *)interstitialAd {
     NSLog(@"iAd did load");
     if (isSplashInterstitial) {
-        [self showIAdInterstitial];
+        [self showIAdInterstitialFromViewController:nil];
     }
     isSplashInterstitial = NO;
 }
@@ -260,7 +263,7 @@ static ACAppClient* _sharedInstance = nil;
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     if (isSplashInterstitial) {
-        [self showAdmobInterstitial];
+        [self showAdmobInterstitialFromViewController:nil];
     }
     isSplashInterstitial = NO;
 }

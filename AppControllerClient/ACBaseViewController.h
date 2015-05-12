@@ -20,6 +20,8 @@
 
 - (void) refreshBanner;
 - (void) refreshInterstital;
+
+- (void) showInterstitialFromViewController:(UIViewController*) viewController;
 - (void) showInterstitial;
 
 - (void) moveBannerToTop;

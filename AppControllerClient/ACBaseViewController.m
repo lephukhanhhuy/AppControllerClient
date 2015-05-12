@@ -65,12 +65,16 @@
     }
     return NO;
 }
-- (void) showInterstitial {
+
+- (void) showInterstitialFromViewController:(UIViewController*) viewController {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == NO) {
         if ([self shouldShowInterstitial]) {
             [[ACAppClient sharedInstance] showInterstitial];
         }
     }
+}
+- (void) showInterstitial {
+    [self showInterstitialFromViewController:nil];
 }
 - (void) refreshBanner {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUserKeyRemovedAd] boolValue] == YES) {
