@@ -27,4 +27,7 @@
 - (void) moveBannerToTop;
 
 - (BOOL) shouldShowInterstitial;
+
+- (void) handleHouseAdNotification;// can override
+
 @end

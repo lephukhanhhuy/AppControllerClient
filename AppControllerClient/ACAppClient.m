@@ -124,9 +124,15 @@ static ACAppClient* _sharedInstance = nil;
             imageVC.shouldHideStatusBar = YES;
             imageVC.bannerImage = _houseAdObject.cachedImage;
             imageVC.appleId = appleID;
-            [vc presentViewController:imageVC animated:NO completion:^{
-                
-            }];
+            if (vc != nil) {
+                [vc presentViewController:imageVC animated:NO completion:^{
+                    
+                }];
+            } else {
+                [[self topMostController] presentViewController:imageVC animated:YES completion:^{
+                    
+                }];
+            }
             isSplashInterstitial = NO;// Cancel splash if the house ad appear
             return YES;
         }
