@@ -64,5 +64,7 @@ typedef enum {
 - (BOOL) isEnableHouseAd;
 - (BOOL) isEnableSplash;
 
+- (UIViewController*) topMostController;
+
 + (void) setupGoogleAnalyticsWithTrackingId:(NSString*) trackingId;
 @end
