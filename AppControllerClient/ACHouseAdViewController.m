@@ -61,23 +61,35 @@
     self.bannerImage = nil;
 }
 
+#define DEVICE_SCREEN_HAS_LENGTH__X(_frame, _length) ( fabsf( MAX(CGRectGetHeight(_frame), CGRectGetWidth(_frame)) - _length) < FLT_EPSILON )
+
+#define DEVICE_IS_IPHONE_3_5_In__X DEVICE_SCREEN_HAS_LENGTH__X([UIScreen mainScreen].bounds, 480.f)
+
 - (void) btnGoSelected {
     NSLog(@"Go to APP: %@", self.appleId);
-    NSDictionary *appParameters = [NSDictionary dictionaryWithObject:self.appleId
-                                                              forKey:SKStoreProductParameterITunesItemIdentifier];
     
-    SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
-    [productViewController setDelegate:self];
-    [productViewController loadProductWithParameters:appParameters
-                                     completionBlock:^(BOOL result, NSError *error)
-     {
-         
-     }];
-    [self presentViewController:productViewController
-                       animated:YES
-                     completion:^{
-                         
-                     }];
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if (DEVICE_IS_IPHONE_3_5_In__X && (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft)) {
+        NSString* url = [NSString stringWithFormat:@"http://itunes.apple.com/app/id%@", self.appleId];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    } else {
+        NSDictionary *appParameters = [NSDictionary dictionaryWithObject:self.appleId
+                                                                  forKey:SKStoreProductParameterITunesItemIdentifier];
+        
+        SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
+        [productViewController setDelegate:self];
+        [productViewController loadProductWithParameters:appParameters
+                                         completionBlock:^(BOOL result, NSError *error)
+         {
+             
+         }];
+        [self presentViewController:productViewController
+                           animated:YES
+                         completion:^{
+                             
+                         }];
+    }
 }
 
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
