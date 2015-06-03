@@ -86,7 +86,12 @@
 - (void) setupAdmob {
     NSLog(@"setup banner Admob");
     [self cleanAllAds];
-    self.admobBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    GADAdSize adSize = kGADAdSizeSmartBannerPortrait;
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        adSize = kGADAdSizeSmartBannerLandscape;
+    }
+    self.admobBannerView = [[GADBannerView alloc] initWithAdSize:adSize];
     self.admobBannerView.adUnitID = [[ACAppClient sharedInstance].delegate admobBannerId];
     self.admobBannerView.rootViewController = self.rootViewController;
     [self addSubview:self.admobBannerView];
