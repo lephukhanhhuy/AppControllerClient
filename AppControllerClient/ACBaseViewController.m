@@ -31,6 +31,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self.bannerView_ sizeToFitWidthWithView:self.view];
+    
+    
 }
 - (void) handleHouseAdNotification {
     if (self.isViewLoaded && (self.view.window != nil)) {
