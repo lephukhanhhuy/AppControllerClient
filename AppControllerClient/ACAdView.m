@@ -42,7 +42,7 @@
 
 - (void) sizeToFitWidthWithView:(UIView*) view {
     self.frame = CGRectMake(0, view.bounds.size.height - kBannerHeight, view.bounds.size.width, kBannerHeight);
-    NSLog(@"%@", NSStringFromCGRect(self.frame));
+//    NSLog(@"%@", NSStringFromCGRect(self.frame));
 }
 
 - (void) refreshBanner {
