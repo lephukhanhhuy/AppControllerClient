@@ -129,7 +129,7 @@ static ACAppClient* _sharedInstance = nil;
                     
                 }];
             } else {
-                [[self topMostController] presentViewController:imageVC animated:YES completion:^{
+                [[self topMostController] presentViewController:imageVC animated:NO completion:^{
                     
                 }];
             }
