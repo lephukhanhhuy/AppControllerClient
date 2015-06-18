@@ -35,7 +35,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];    
     // Update the real banner here
-    self.admobBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    self.admobBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height - self.admobBannerView.frame.size.height/2);
     self.iAdBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     self.startAdBannerView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 }
