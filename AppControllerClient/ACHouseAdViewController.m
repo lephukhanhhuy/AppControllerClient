@@ -65,13 +65,14 @@
 
 #define DEVICE_IS_IPHONE_3_5_In__X DEVICE_SCREEN_HAS_LENGTH__X([UIScreen mainScreen].bounds, 480.f)
 #define DEVICE_IS_IPHONE_5__X DEVICE_SCREEN_HAS_LENGTH__X([UIScreen mainScreen].bounds, 568.f)
+#define DEVICE_IS_IPHONE_6 DEVICE_SCREEN_HAS_LENGTH__X([UIScreen mainScreen].bounds, 667.f)
 
 - (void) btnGoSelected {
     NSLog(@"Go to APP: %@", self.appleId);
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
-    if ((DEVICE_IS_IPHONE_3_5_In__X || DEVICE_IS_IPHONE_5__X) && (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft)) {
+    if ((DEVICE_IS_IPHONE_3_5_In__X || DEVICE_IS_IPHONE_5__X || DEVICE_IS_IPHONE_6) && (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft)) {
         NSString* url = [NSString stringWithFormat:@"http://itunes.apple.com/app/id%@", self.appleId];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     } else {
